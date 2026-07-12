@@ -1,0 +1,19 @@
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "admin_secure_password"
+        - id: "developer"
+          password: "developer_password" # Task 5.1
+  
+  authorizationStrategy:
+    projectMatrix: # Task 5.2
+      permissions:
+        - "Overall/Administer:admin" # Task 5.3
+        - "Overall/Read:developer" # Task 5.3
+        - "Job/Read:developer"
+        - "Job/Discover:developer"
+        - "Job/Build:developer"
+        - "Job/Workspace:developer"
